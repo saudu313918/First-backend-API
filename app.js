@@ -34,7 +34,7 @@ const aliRouter = require('./routes/aliens')
 
 app.use('/aliens',aliRouter)
 
-app.listen(8000, function(){
+app.listen(8080, function(){
     console.log('Server Started')
 })
 
