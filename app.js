@@ -1,24 +1,43 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors'); 
 
-const URL = 'mongodb://localhost:27017/mydb'
-const app = express()
+const app = express();app.use(cors());
+//add mongodb atlas url
+const URL = "mongodb+srv://root:S3ESfG81G7NRV0Th@myfirstcluster.zoylr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const URL = 'mongodb://localhost:27017/mydb'
 
 
-mongoose.connect(URL, {useNewUrlParser:true})
+// new username : root
+// new password :  S3ESfG81G7NRV0Th
+// new url of mongodb : 
+
+mongoose.connect(URL, {
+    useNewUrlParser:true,
+    useUnifiedTopology: true
+    })
 
 const con = mongoose.connection
 
-con.on('open', function(){
-    console.log('connected...')
-})
-
 app.use(express.json())
-
+try{
+    con.on('open',() => {
+        console.log('Connected After the Service started......');
+    })
+}catch(error)
+{
+    console.log("Error: "+error);
+}
+//  frontend build in dist folder and used in our node application to make a single docker file
+app.use(express.static('dist'));
 const aliRouter = require('./routes/aliens')
 
-app.use('aliens',aliRouter)
+app.use('/aliens',aliRouter)
 
 app.listen(8000, function(){
     console.log('Server Started')
 })
+
+
+
+
