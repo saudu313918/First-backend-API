@@ -2,9 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors'); 
 
-const app = express();app.use(cors({
-    origin:"https://angular-app-gcp-325410.uc.r.appspot.com/"
-}));
+const app = express();app.use(cors({}));
 //add mongodb atlas url
 const URL = "mongodb+srv://root:S3ESfG81G7NRV0Th@myfirstcluster.zoylr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 // const URL = 'mongodb://localhost:27017/mydb'
