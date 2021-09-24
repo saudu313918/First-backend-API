@@ -34,9 +34,14 @@ const aliRouter = require('./routes/aliens')
 
 app.use('/aliens',aliRouter)
 
-app.listen(8080, function(){
-    console.log('Server Started')
-})
+// app.listen(8080, function(){
+//     console.log('Server Started')
+// })
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('Hello world listening on port', port);
+});
 
 
 
