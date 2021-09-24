@@ -21,7 +21,7 @@ router.get('/:id', async(req, res) => {
     }catch(err){
         res.send('Error' + err)
     }
-    res.setHeader('Access-Control-Allow-Origin', 'https://angular-app-gcp-325410.uc.r.appspot.com/');
+    // res.setHeader('Access-Control-Allow-Origin', 'https://angular-app-gcp-325410.uc.r.appspot.com/');
 })
 
 // Get Product By Id
